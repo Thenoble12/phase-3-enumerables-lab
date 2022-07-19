@@ -34,7 +34,7 @@ end
 # "hello" * 3 == "hellohellohello"
 def print_spicy_foods(spicy_foods)
    spicy_foods.each do |e|
-    puts "#{e[:name]} + " " +  #{e[:cuisine]} +  " " + #{e[:heat_level] * 🌶}" 
+    puts "#{e[:name]} (#{e[:cuisine]}) | Heat Level: #{"🌶" * e[:heat_level]}" 
    end
 end
 
@@ -50,7 +50,9 @@ end
 # Given an array of spicy foods, **return an array of hashes** 
 # sorted by heat level from lowest to highest
 def sort_by_heat(spicy_foods)
-  result = spicy_foods.sort_by(:heat_level).to_h
+  result = spicy_foods.sort_by do |e|
+              e[:heat_level]
+  end
 end
 
 # given an array of spicy foods, output to the terminal ONLY 
